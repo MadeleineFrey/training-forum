@@ -4,9 +4,9 @@ from .models import Question
 
 
 class QuestionList(generic.ListView):
-    "" X ""
+    """ X """
 
     model = Question
-    queryset = Question.objects.filter(ststus=1).order_by('-created_on')
-    template_name = 'index.html'
+    queryset = Question.objects.filter(status=1).order_by('-created_on')
+    template_name = 'questions.html'
     paginate_by = 6
