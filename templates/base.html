@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -15,8 +17,12 @@
     
     <!-- Navigation -->
 
-
-    <!-- Content Goes Here -->
+    <main class="flex-shrink-0 main-bg">
+        {% block content %}
+         <!-- Content Goes Here -->
+         {% endblock content %}
+    </main>
+   
 
 
     <!-- Footer -->
