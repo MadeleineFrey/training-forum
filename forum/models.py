@@ -16,7 +16,7 @@ class Question(models.Model):
                                related_name='user_questions')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    answerd = models.BooleanField(null=False, blank=False, default=False)
+    answered = models.BooleanField(null=False, blank=False, default=False)
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:

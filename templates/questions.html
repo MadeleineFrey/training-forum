@@ -2,5 +2,36 @@
 
 {% block content %}
 
-<h1>Hello</h1>
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for question in question_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ question.author }}</p>
+                                    <h2 class="card-title">Title: {{ question.title }}</h2>
+                                </div>
+                            </div>
+                            <a href="{% url 'full_question' question.slug %}" class="question-link">
+                                <h2 class="card-title">{{ question.title }}</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:1 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
 {% endblock%}

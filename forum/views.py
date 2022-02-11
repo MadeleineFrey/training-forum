@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Question
 
@@ -18,7 +18,34 @@ class HomePage(View):
     """
 
     def get(self, request):
+        """
+        x
+        """
+        
         return render(
             request,
             'index.html'
             )
+
+
+class FullQuestion(View):
+    """
+    x
+    """
+    def get(self, request, slug, *args, **kwargs):
+        """
+        x
+        """
+
+        queryset = Question.objects.filter(status=1)
+        question = get_object_or_404(queryset, slug=slug)
+        comments = question.comments.filter(approved=True).order_by('created_on')
+
+        return render(
+            request,
+            'full_question.html',
+            {
+                'question': question,
+                'comments': comments
+            }
+        )
