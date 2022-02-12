@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Question
+from .forms import CommentForm
 
 
 class QuestionList(generic.ListView):
@@ -46,6 +47,40 @@ class FullQuestion(View):
             'full_question.html',
             {
                 'question': question,
-                'comments': comments
+                'comments': comments,
+                'commented': False,
+                'comment_form': CommentForm()
             }
         )
+
+    def post(self, request, slug, *args, **kwargs):
+        """
+        x
+        """
+
+        queryset = Question.objects.filter(status=1)
+        question = get_object_or_404(queryset, slug=slug)
+        comments = question.comments.filter(approved=True).order_by('created_on')
+
+        comment_form = CommentForm(data=request.POST)
+
+        if comment_form.is_valid():
+            # comment_form.instance.email = request.user.email
+            comment_form.instance.username = request.user
+            comment = comment_form.save(commit=False)
+            comment.question = question
+            comment.save()
+
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            'full_question.html',
+            {
+                'question': question,
+                'comments': comments,
+                'commented': True,
+                'comment_form': CommentForm()
+            }
+        )    
