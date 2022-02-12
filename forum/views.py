@@ -84,3 +84,26 @@ class FullQuestion(View):
                 'comment_form': CommentForm()
             }
         )    
+
+
+class UserProfile(View):
+    """
+    X
+    """
+
+    def get(self, request, *args, **kwargs):
+        """
+        X
+        """
+        mquestions = Question.objects.filter(author=self.request.user).filter(status=1).order_by('-created_on')
+
+        return render(
+            request,
+            'user_profile.html',
+            {
+                'mquestions': mquestions, 
+            }
+
+        )
+
+
