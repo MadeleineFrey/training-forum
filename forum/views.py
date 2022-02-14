@@ -86,6 +86,7 @@ class FullQuestion(View):
         )    
 
 
+
 class UserProfile(View):
     """
     X
@@ -95,15 +96,17 @@ class UserProfile(View):
         """
         X
         """
+    
         mquestions = Question.objects.filter(author=self.request.user).filter(status=1).order_by('-created_on')
-
+    
         return render(
             request,
             'user_profile.html',
             {
-                'mquestions': mquestions, 
+                'mquestions': mquestions
             }
-
         )
+
+        
 
 

@@ -7,5 +7,5 @@ urlpatterns = [
     path('', views.HomePage.as_view(), name='home'),
     path('questions/', views.QuestionList.as_view(), name='question'),
     path('<slug:slug>/', views.FullQuestion.as_view(), name='full_question'),
-    path('mquestions', login_required(views.UserProfile.as_view()), name='user_profile'),
+    path('user_profile', login_required(views.UserProfile.as_view()), name='user_profile'),
 ]

@@ -19,6 +19,7 @@ class Question(models.Model):
     answered = models.BooleanField(null=False, blank=False, default=False)
     status = models.IntegerField(choices=STATUS, default=0)
 
+
     class Meta:
         """ X """
         ordering = ['-created_on']
