@@ -1,5 +1,6 @@
-from .models import Comment
+from .models import Comment, Question
 from django import forms
+
 
 
 class CommentForm(forms.ModelForm):
@@ -12,3 +13,24 @@ class CommentForm(forms.ModelForm):
         """
         model = Comment
         fields = ('message',)
+
+
+class QuestionForm(forms.ModelForm):
+    """
+    X
+    """
+    class Meta:
+        """
+        X
+        """
+
+        model = Question
+        fields = [
+            'title',
+            'slug',
+            'body',
+            'author',
+            'answered',
+            'status'
+        ]
+    

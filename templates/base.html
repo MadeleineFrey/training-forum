@@ -35,7 +35,7 @@
             </li>
             {% if user.is_superuser %}
             <li class="nav-item">
-              <a class="nav-link" href="#">Admin Profile</a>
+              <a class="nav-link" href="{% url 'user_profile' %}">Admin Profile</a>
             </li>
             {% else %}
             <li class="nav-item">

@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Question
-from .forms import CommentForm
+from .forms import CommentForm, QuestionForm
+from django.contrib.auth.models import User
 
 
 class QuestionList(generic.ListView):
@@ -107,6 +108,48 @@ class UserProfile(View):
             }
         )
 
-        
+
+class AddQuestion(View):
+    """
+    x
+    """
+    def get(self, request, *args, **kwargs):
+        """
+        x
+        """
+        return render(
+            request,
+            'add_question.html',
+            {
+                'question_form': QuestionForm()
+            }
+        )
+
+    def post(self, request, *args, **kwargs):
+        """
+        x
+        """
+
+        question_form = QuestionForm(data=request.POST)
+
+        if question_form.is_valid():
+            question_form.instance.author = self.request.user
+            fraga = question_form.save(commit=False)
+            fraga.save()
+
+        else:
+            question_form = QuestionForm()
+            
+        return render(
+            request,
+            'add_question.html',
+            {
+                'question_form': QuestionForm()
+            }
+        )    
+
+
+    
+
 
 
