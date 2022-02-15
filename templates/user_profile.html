@@ -30,7 +30,7 @@
                                     <a href="{% url 'full_question' i.slug %}">
                                     <h2 class="card-title">Title: {{ i.title }} </h2>
                                     </a>
-                                    <a href="#">
+                                    <a href="{% url 'edit_question' i.slug %}">
                                         <p>Edit Question</p>
                                     </a>
                                 </div>

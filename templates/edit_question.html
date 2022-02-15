@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="card-body">
+    <!-- For later -->
+    {% if user.is_authenticated %}
+
+    <h3>Edit question:</h3>
+    <form method="post" style="margin-top: 1.3em;">
+    {{ edit_question_form | crispy }}
+    {% csrf_token %}
+    <button class="btn btn-update btn-lg">Update</button>
+    </form>
+    <hr>
+    
+    <a href="#" class="btn btn-danger badge"> delete</a>
+
+    {% endif %}    
+</div>
+
+{% endblock content %}

@@ -29,8 +29,8 @@ class QuestionForm(forms.ModelForm):
             'title',
             'slug',
             'body',
-            'author',
             'answered',
             'status'
         ]
-    
+
+

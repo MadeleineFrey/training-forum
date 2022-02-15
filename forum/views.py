@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
+# from django.http import request
+# from django.contrib import messages
 from .models import Question
 from .forms import CommentForm, QuestionForm
 from django.contrib.auth.models import User
@@ -11,7 +13,7 @@ class QuestionList(generic.ListView):
     model = Question
     queryset = Question.objects.filter(status=1).order_by('-created_on')
     template_name = 'questions.html'
-    paginate_by = 6
+    # paginate_by = 6
 
 
 class HomePage(View):
@@ -117,6 +119,7 @@ class AddQuestion(View):
         """
         x
         """
+        
         return render(
             request,
             'add_question.html',
@@ -133,11 +136,12 @@ class AddQuestion(View):
         question_form = QuestionForm(data=request.POST)
 
         if question_form.is_valid():
-            question_form.instance.author = self.request.user
+            question_form.instance.author = request.user
             fraga = question_form.save(commit=False)
             fraga.save()
 
         else:
+            # print(' not saving ')
             question_form = QuestionForm()
             
         return render(
@@ -150,6 +154,55 @@ class AddQuestion(View):
 
 
     
+class EditQuestion(View):
+    """ 
+    X
+    """
+    
+    def get(self, request, slug, *args, **kwargs):
+        """
+        x
+        """
+        queryset = Question.objects.filter(status=1)
+        rest = get_object_or_404(queryset, slug=slug)
+        editform = QuestionForm(instance=rest)
+        
+        return render(
+            request,
+            'edit_question.html',
+            {
+                'editform': editform,
+                'edit_question_form': QuestionForm(instance=rest)
+            }        
+        )
 
 
+    def post(self, request, slug, *args, **kwargs):
+        """
+        x
+        """
+        queryset = Question.objects.filter(status=1)
+        rest = get_object_or_404(queryset, slug=slug)
+        edit_question_form = QuestionForm(data=request.POST, instance=rest)
+
+        if edit_question_form.is_valid():
+            edit_question_form.instance.author = request.user
+            wfraga = edit_question_form.save(commit=False)
+            wfraga.save()
+
+        else:
+            # print(' not saving ')
+            edit_question_form = QuestionForm()
+            
+        # messages.success(request, 'Updated')
+        return redirect('/user_profile')
+
+# def delete_question(request, slug, *args, **kwargs):
+  #   """ 
+   #  X
+    # """
+    # queryset = Question.objects.filter(status=1)
+    # tes = get_object_or_404(queryset, slug=slug)
+    # tes.delete()
+    # return redirect('/user_profile')
 
