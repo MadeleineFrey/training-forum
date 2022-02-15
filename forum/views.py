@@ -127,8 +127,11 @@ class UserProfile(View):
         """
         X
         """
-    
-        mquestions = Question.objects.filter(author=self.request.user).filter(status=1).order_by('-created_on')
+        if request.user.is_superuser:
+            mquestions = Question.objects.filter(status=1).order_by('-created_on')
+        else:
+            mquestions = Question.objects.filter(author=self.request.user).filter(status=1).order_by('-created_on')
+
     
         return render(
             request,
@@ -172,13 +175,7 @@ class AddQuestion(View):
             # print(' not saving ')
             question_form = QuestionForm()
             
-        return render(
-            request,
-            'add_question.html',
-            {
-                'question_form': QuestionForm()
-            }
-        )    
+        return redirect('/user_profile')
 
 
     
