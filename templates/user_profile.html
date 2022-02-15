@@ -5,7 +5,7 @@
 
 {% if user.is_superuser %}
 
-<div class="card mx-auto shadow mt-4" style="width: 18rem;">
+<div class="card mx-auto shadow m-4" style="width: 18rem;">
     <div class="card-body mx-auto">
       <h2 class="card-title profile-title">{{ user.username }} <i class="fa-solid fa-address-card"></i></h2>
       <p class="card-text">Welcome {{ user.username }}. As an admin you have acces to all questions and can manage them however you want. </p>
@@ -53,7 +53,7 @@
 {% else %}
 
 
-<div class="card mx-auto shadow" style="width: 18rem;">
+<div class="card mx-auto shadow m-4" style="width: 18rem;">
     <div class="card-body mx-auto">
       <h2 class="card-title profile-title">{{ user.username }} <i class="fa-solid fa-address-card"></i></h2>
       <p class="card-text">Welcome {{ user.username }}, to your profile. Here can you manage your questions and add if needed to. </p>
