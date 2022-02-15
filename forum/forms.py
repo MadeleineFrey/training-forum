@@ -27,7 +27,6 @@ class QuestionForm(forms.ModelForm):
         model = Question
         fields = [
             'title',
-            'slug',
             'body',
             'answered',
             'status'

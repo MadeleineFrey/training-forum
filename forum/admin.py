@@ -7,10 +7,10 @@ from django_summernote.admin import SummernoteModelAdmin
 class QuestionAdmin(SummernoteModelAdmin):
     """ X """
 
-    list_display = ('title', 'slug', 'status', 'created_on')
+    list_display = ('title', 'status', 'created_on')
     search_fields = ['title', 'content']
     list_filter = ('status', 'created_on')
-    prepopulated_fields = {'slug': ('title',)}
+    # prepopulated_fields = {'': ('title',)}
     summernote_fields = ('body')
 
 

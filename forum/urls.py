@@ -6,11 +6,10 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     path('', views.HomePage.as_view(), name='home'),
     path('questions/', views.QuestionList.as_view(), name='question'),
-    path('<slug:slug>/', views.FullQuestion.as_view(), name='full_question'),
+    path('<int:id>/', views.FullQuestion.as_view(), name='full_question'),
     path('user_profile', login_required(views.UserProfile.as_view()), name='user_profile'),
     path('AddQuestion', login_required(views.AddQuestion.as_view()), name='addquestion'),
-    path('edit/<slug:slug>/', views.EditQuestion.as_view(), name='edit_question'),
-    # path('delete_question/<slug:slug>/', views.delete_question, name="delete_question")
-
-
+    path('edit/<int:id>/', views.EditQuestion.as_view(), name='edit_question'),
+    # path('like/<int:id>', views.QuestionLike.as_view(), name='question_like'),
+    path('delete_question/<int:id>/', views.delete_question, name="delete_question")
 ]

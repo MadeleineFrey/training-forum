@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
-# from django.http import request
+from django.http import HttpResponseRedirect
 # from django.contrib import messages
 from .models import Question
 from .forms import CommentForm, QuestionForm
@@ -36,14 +36,17 @@ class FullQuestion(View):
     """
     x
     """
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, id, *args, **kwargs):
         """
         x
         """
 
         queryset = Question.objects.filter(status=1)
-        question = get_object_or_404(queryset, slug=slug)
+        question = get_object_or_404(queryset, id=id)
         comments = question.comments.filter(approved=True).order_by('created_on')
+        liked = False
+        if question.likes.filter(id=self.request.user.id).exists():
+            liked = True
 
         return render(
             request,
@@ -52,18 +55,21 @@ class FullQuestion(View):
                 'question': question,
                 'comments': comments,
                 'commented': False,
+                'liked': liked,
                 'comment_form': CommentForm()
             }
         )
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, id, *args, **kwargs):
         """
         x
         """
 
         queryset = Question.objects.filter(status=1)
-        question = get_object_or_404(queryset, slug=slug)
+        question = get_object_or_404(queryset, id=id)
         comments = question.comments.filter(approved=True).order_by('created_on')
+        if question.likes.filter(id=self.request.user.id).exists():
+            liked = True
 
         comment_form = CommentForm(data=request.POST)
 
@@ -84,9 +90,30 @@ class FullQuestion(View):
                 'question': question,
                 'comments': comments,
                 'commented': True,
+                'liked': liked,
                 'comment_form': CommentForm()
             }
-        )    
+        ) 
+
+class QuestionLike(View):
+    """
+    X
+    """
+
+    def post(self, request, id, *args, **kwargs):
+        """ 
+        X
+        """
+
+        question = get_object_or_404(Question, id=id)
+        if question.likes.filter(id=self.request.user.id).exists():
+            question.likes.remove(request.user)
+        else:
+            question.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('full_detail', args=[id]))
+
+
 
 
 
@@ -159,12 +186,12 @@ class EditQuestion(View):
     X
     """
     
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, id, *args, **kwargs):
         """
         x
         """
         queryset = Question.objects.filter(status=1)
-        rest = get_object_or_404(queryset, slug=slug)
+        rest = get_object_or_404(queryset, id=id)
         editform = QuestionForm(instance=rest)
         
         return render(
@@ -177,12 +204,12 @@ class EditQuestion(View):
         )
 
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, id, *args, **kwargs):
         """
         x
         """
         queryset = Question.objects.filter(status=1)
-        rest = get_object_or_404(queryset, slug=slug)
+        rest = get_object_or_404(queryset, id=id)
         edit_question_form = QuestionForm(data=request.POST, instance=rest)
 
         if edit_question_form.is_valid():
@@ -197,12 +224,12 @@ class EditQuestion(View):
         # messages.success(request, 'Updated')
         return redirect('/user_profile')
 
-# def delete_question(request, slug, *args, **kwargs):
-  #   """ 
-   #  X
-    # """
-    # queryset = Question.objects.filter(status=1)
-    # tes = get_object_or_404(queryset, slug=slug)
-    # tes.delete()
-    # return redirect('/user_profile')
+def delete_question(request, id, *args, **kwargs):
+    """ 
+    X
+    """
+    queryset = Question.objects.filter(status=1)
+    tes = get_object_or_404(queryset, id=id)
+    tes.delete()
+    return redirect('/user_profile')
 

@@ -27,10 +27,10 @@
                             <div class="image-container">
                                 <div class="image-flash">
                                     <p class="author">Author: {{ i.author }} </p>
-                                    <a href="{% url 'full_question' i.slug %}">
+                                    <a href="{% url 'full_question' i.id %}">
                                     <h2 class="card-title">Title: {{ i.title }} </h2>
                                     </a>
-                                    <a href="{% url 'edit_question' i.slug %}">
+                                    <a href="{% url 'edit_question' i.id %}">
                                         <p>Edit Question</p>
                                     </a>
                                 </div>
