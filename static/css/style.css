@@ -75,3 +75,11 @@ a:link {
 a:hover {
     color: #97b4b3;
 }
+
+
+.jumbotron {
+    background-image: url("https://res.cloudinary.com/dhmusmslg/image/upload/v1644965794/sky_ypj5w0.jpg");
+    background-size: cover;
+    padding-top: 1%;
+    padding-bottom: 25%;
+}
