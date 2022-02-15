@@ -9,7 +9,7 @@ urlpatterns = [
     path('<int:id>/', views.FullQuestion.as_view(), name='full_question'),
     path('user_profile', login_required(views.UserProfile.as_view()), name='user_profile'),
     path('AddQuestion', login_required(views.AddQuestion.as_view()), name='addquestion'),
-    path('edit/<int:id>/', views.EditQuestion.as_view(), name='edit_question'),
+    path('edit/<int:id>/', login_required(views.EditQuestion.as_view()), name='edit_question'),
     # path('like/<int:id>', views.QuestionLike.as_view(), name='question_like'),
-    path('delete_question/<int:id>/', views.delete_question, name="delete_question")
+    path('edit/<int:id>/delete_question/', login_required(views.delete_question), name="delete_question")
 ]

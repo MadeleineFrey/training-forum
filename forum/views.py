@@ -7,6 +7,7 @@ from .forms import CommentForm, QuestionForm
 from django.contrib.auth.models import User
 
 
+
 class QuestionList(generic.ListView):
     """ X """
 
@@ -224,12 +225,18 @@ class EditQuestion(View):
         # messages.success(request, 'Updated')
         return redirect('/user_profile')
 
-def delete_question(request, id, *args, **kwargs):
+def delete_question(request, id):
     """ 
     X
     """
-    queryset = Question.objects.filter(status=1)
-    tes = get_object_or_404(queryset, id=id)
-    tes.delete()
+    if request.user.is_superuser:
+        item = get_object_or_404(Question, id=id)
+    else:
+        item = get_object_or_404(Question, id=id, author=request.user)
+
+    item.delete()
+
     return redirect('/user_profile')
+
+    
 
