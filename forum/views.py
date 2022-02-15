@@ -212,15 +212,30 @@ class EditQuestion(View):
         queryset = Question.objects.filter(status=1)
         rest = get_object_or_404(queryset, id=id)
         edit_question_form = QuestionForm(data=request.POST, instance=rest)
+        if request.user.is_superuser: 
 
-        if edit_question_form.is_valid():
-            edit_question_form.instance.author = request.user
-            wfraga = edit_question_form.save(commit=False)
-            wfraga.save()
+            queryset = Question.objects.filter(status=1)
+            rest = get_object_or_404(queryset, id=id)
+
+            if edit_question_form.is_valid():
+                wfraga = edit_question_form.save(commit=False)
+                wfraga.save()
+            else:
+                edit_question_form = QuestionForm()
 
         else:
-            # print(' not saving ')
-            edit_question_form = QuestionForm()
+            queryset = Question.objects.filter(status=1)
+            rest = get_object_or_404(queryset, author=request.user, id=id)
+
+            if edit_question_form.is_valid():
+                
+                edit_question_form.instance.author = request.user
+                wfraga = edit_question_form.save(commit=False)
+                wfraga.save()
+
+            else:
+                # print(' not saving ')
+                edit_question_form = QuestionForm()
             
         # messages.success(request, 'Updated')
         return redirect('/user_profile')
