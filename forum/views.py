@@ -91,7 +91,6 @@ class FullQuestion(View):
                 'question': question,
                 'comments': comments,
                 'commented': True,
-                'liked': liked,
                 'comment_form': CommentForm()
             }
         ) 

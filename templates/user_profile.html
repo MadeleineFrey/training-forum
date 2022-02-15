@@ -5,11 +5,10 @@
 
 {% if user.is_superuser %}
 
-<div class="card mx-auto" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ username.user }}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div class="card mx-auto shadow mt-4" style="width: 18rem;">
+    <div class="card-body mx-auto">
+      <h2 class="card-title profile-title">{{ user.username }} <i class="fa-solid fa-address-card"></i></h2>
+      <p class="card-text">Welcome {{ user.username }}. As an admin you have acces to all questions and can manage them however you want. </p>
     </div>
     <div class="card-body">
       <a href="{% url 'addquestion' %}" class="card-link">Ask Question</a>
@@ -22,7 +21,7 @@
             <div class="row">
                 {% for i in mquestions %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4 shadow">
                         <div class="card-body">
                             <div class="image-container">
                                 <div class="image-flash">
@@ -54,11 +53,10 @@
 {% else %}
 
 
-<div class="card mx-auto" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ username.user }}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div class="card mx-auto shadow" style="width: 18rem;">
+    <div class="card-body mx-auto">
+      <h2 class="card-title profile-title">{{ user.username }} <i class="fa-solid fa-address-card"></i></h2>
+      <p class="card-text">Welcome {{ user.username }}, to your profile. Here can you manage your questions and add if needed to. </p>
     </div>
     <div class="card-body">
       <a href="{% url 'addquestion' %}" class="card-link">Ask Question</a>
@@ -72,7 +70,7 @@
             <div class="row">
                 {% for i in mquestions %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4 shadow">
                         <div class="card-body">
                             <div class="image-container">
                                 <div class="image-flash">
