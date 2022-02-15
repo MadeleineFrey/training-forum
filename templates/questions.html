@@ -2,37 +2,51 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row">
-
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-12">
             <div class="row">
                 {% for question in question_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ question.author }}</p>
-                                    <h2 class="card-title">Title: {{ question.title }}</h2>
+                <div class="col-xl-6 col-md-12 hund">
+                    <div class="card shadow">
+                        <div class="card-content">
+                            <div class="card-body cleartfix">
+                                <div class="media align-items-stretch">
+                                    <div class="media-body">
+                                        <h4>Title: {{ question.title }}</h4>
+                                        <span>Author: {{ question.author }}</span>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <a href="{% url 'full_question' question.slug %}" class="question-link" id="readmore-link">
+                                            <h2 class="card-title" id="readmore">Read more:</h2>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <a href="{% url 'full_question' question.slug %}" class="question-link">
-                                <h2 class="card-title">{{ question.title }}</h2>
-                            </a>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:1 %}
+                {% if forloop.counter|divisibleby:2 %}
             </div>
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
-    </div>
+    {% if is_paginated %}
+    <nav class="ml-4" aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link prev">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link nex"> NEXT &raquo;</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
 </div>
 
     {% endblock%}
