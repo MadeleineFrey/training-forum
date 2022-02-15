@@ -14,6 +14,34 @@
                 <p class="card-text ">
                     {{ question.body | safe }}
                 </p>
+                
+                <p class="card-text text-muted h6">{{ question.created_on}}</p>
+                <div class="col-1">
+                    {% if user.is_authenticated %}
+                    <form class="d-inline" action="{% url 'question_like' question.id %}" method="POST">
+                        {% csrf_token %}
+                        {% if liked %}
+
+                        <button type="submit" name="question_id" value="{{question.id}}" class="btn-like"><i
+                            class="fas fa-heart"></i></button>
+
+                        {% else %}
+                        
+                        <button type="submit" name="question_id" value="{{question.id}}" class="btn-like"><i
+                            class="far fa-heart"></i></button>
+
+                        {% endif%}
+
+                    </form>
+
+                    {% else %}
+                    <span class="text-secondary"><i class="far fa-heart"></i></span>
+
+                    {% endif %}
+                    <span class="text-secondary">{{ question.number_of_likes }}</span>
+                    <!-- The number of likes goes before the closing strong tag -->
+                
+                </div> 
             </div>
         </div>
     </div>

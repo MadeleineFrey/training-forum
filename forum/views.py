@@ -112,7 +112,7 @@ class QuestionLike(View):
         else:
             question.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('full_detail', args=[id]))
+        return HttpResponseRedirect(reverse('full_question', args=[id]))
 
 
 
@@ -172,7 +172,7 @@ class AddQuestion(View):
             fraga.save()
 
         else:
-            # print(' not saving ')
+        
             question_form = QuestionForm()
             
         return redirect('/user_profile')
