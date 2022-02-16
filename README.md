@@ -4,6 +4,11 @@
 ## About
 ---
 
+<p>
+People, all around the world enjoy training in their daily life, but sometimes you can have questions. 
+Asking questions can help ensure that you're performing the exercise most effectively for your body. You'll not only likely see better results but also avoid potential injury this way. The Traint forum will help you with just that.
+</p>
+
 ### UX (User Experience)
 ---
 
@@ -341,6 +346,10 @@ In Heroku
 
 ### Final Deployment
 
+* start with setting debug to False i settings.py
+    * add, X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+* Then commit your changes and push to github
 
 ## Credits
 ---
