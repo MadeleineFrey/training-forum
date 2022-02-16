@@ -57,6 +57,8 @@ Asking questions can help ensure that you're performing the exercise most effect
     * [Register](documentation/img/signup.jpg)
     * [Login](documentation/img/login.jpg)
     * [Logout](documentation/img/logout.jpg)
+
+* [Mockup](documentation/img/mockup.jpg)
     
 
 
