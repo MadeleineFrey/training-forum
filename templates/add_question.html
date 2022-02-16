@@ -1,22 +1,15 @@
 {% extends "base.html" %}
-
 {% load crispy_forms_tags %}
-
 {% block content %}
-
 <div class="card-body mx-auto" style="width: 310px;">
-    <!-- For later -->
     {% if user.is_authenticated %}
-
     <h3>Ask a question:</h3>
     <p>Posting as: {{ user.username }}</p>
     <form method="post" style="margin-top: 1.3em;">
-    {{ question_form | crispy }}
-    {% csrf_token %}
-    <button class="btn btn-signup btn-lg">Submit</button>
+        {{ question_form | crispy }}
+        {% csrf_token %}
+        <button class="btn btn-signup btn-lg btn-outline-secondary">Submit</button>
     </form>
-
-    {% endif %}    
+    {% endif %}
 </div>
-
 {% endblock content %}

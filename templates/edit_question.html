@@ -5,18 +5,16 @@
 {% block content %}
 
 <div class="card-body mx-auto question-form" style="width: 310px;">
-    <!-- For later -->
     {% if user.is_authenticated %}
-
     <h3>Edit question:</h3>
     <form method="post" style="margin-top: 1.3em;">
-    {{ edit_question_form | crispy }}
-    {% csrf_token %}
-    <button class="btn btn-update btn-lg">Update</button>
+        {{ edit_question_form | crispy }}
+        {% csrf_token %}
+        <button class="btn btn-update btn-lg btn-outline-secondary">Update</button>
     </form>
     <hr>
-    <button onclick="confirm_delete('delete_question/')">Delete</button> 
-    {% endif %}    
+    <button class="btn btn-danger" onclick="confirm_delete('delete_question/')">Delete</button>
+    {% endif %}
 </div>
 
 {% endblock content %}

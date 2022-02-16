@@ -163,8 +163,9 @@
 
 ### Validator Testing
 
-#### Html 
+#### [Html](documentation/img/hvalidation.jpg) 
 
+Templates 
 * Base.html
 * Index.html
 * Question.html
@@ -178,7 +179,7 @@
 
 <br>
 
-#### CSS
+#### [CSS](documentation/img/AdminPy.jpg)
 
 * style.css
 
@@ -186,26 +187,29 @@
 
 #### Javascript
 
-* script.js
+* script.js, validated with [jshint](https://jshint.com/)
 
 <br>
 
 #### Python
 
 * Forum
-    * admin.py
-    * forms.py
-    * models.py
-    * urls.py
-    * views.p
+    * [ admin.py](documentation/img/AdminPy.jpg)
+    * [forms.py](documentation/img/formsPy.jpg)
+    * [models.py](documentation/img/ModelsPy.jpg)
+    * [urls.py](documentation/img/urls.jpg)
+    * [views.py](documentation/img/viewsPy.jpg)
 
 * Traint
-    * settings.py
-    * urls.py
+    * [settings.py](documentation/img/settingsPy.jpg)
+    * [urls.py](documentation/img/settingsPy.jpg)
 
 <br>
 
 ### Manual testing
+
+![manual1](documentation/img/man1.jpg)
+![manual2](documentation/img/man2.jpg)
 
 <br>
 

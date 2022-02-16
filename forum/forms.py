@@ -2,7 +2,6 @@ from .models import Comment, Question
 from django import forms
 
 
-
 class CommentForm(forms.ModelForm):
     """
     X
@@ -28,8 +27,4 @@ class QuestionForm(forms.ModelForm):
         fields = [
             'title',
             'body',
-            'answered',
-            'status'
         ]
-
-

@@ -1,15 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-# from django.contrib import messages
 from .models import Question
 from .forms import CommentForm, QuestionForm
 from django.contrib.auth.models import User
 
 
-
 class QuestionList(generic.ListView):
-    """ X """
+    """
+    X
+    """
 
     model = Question
     queryset = Question.objects.filter(status=1).order_by('-created_on')
@@ -26,7 +26,7 @@ class HomePage(View):
         """
         x
         """
-        
+
         return render(
             request,
             'index.html'
@@ -44,7 +44,7 @@ class FullQuestion(View):
 
         queryset = Question.objects.filter(status=1)
         question = get_object_or_404(queryset, id=id)
-        comments = question.comments.filter(approved=True).order_by('created_on')
+        comments = question.comments.order_by('created_on')
         liked = False
         if question.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -68,14 +68,13 @@ class FullQuestion(View):
 
         queryset = Question.objects.filter(status=1)
         question = get_object_or_404(queryset, id=id)
-        comments = question.comments.filter(approved=True).order_by('created_on')
+        comments = question.comments.order_by('created_on')
         if question.likes.filter(id=self.request.user.id).exists():
             liked = True
 
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
-            # comment_form.instance.email = request.user.email
             comment_form.instance.username = request.user
             comment = comment_form.save(commit=False)
             comment.question = question
@@ -93,7 +92,8 @@ class FullQuestion(View):
                 'commented': True,
                 'comment_form': CommentForm()
             }
-        ) 
+        )
+
 
 class QuestionLike(View):
     """
@@ -101,7 +101,7 @@ class QuestionLike(View):
     """
 
     def post(self, request, id, *args, **kwargs):
-        """ 
+        """
         X
         """
 
@@ -114,9 +114,6 @@ class QuestionLike(View):
         return HttpResponseRedirect(reverse('full_question', args=[id]))
 
 
-
-
-
 class UserProfile(View):
     """
     X
@@ -127,11 +124,12 @@ class UserProfile(View):
         X
         """
         if request.user.is_superuser:
-            mquestions = Question.objects.filter(status=1).order_by('-created_on')
+            mquestions = Question.objects.filter(status=1) \
+                 .order_by('-created_on')
         else:
-            mquestions = Question.objects.filter(author=self.request.user).filter(status=1).order_by('-created_on')
+            mquestions = Question.objects.filter(author=self.request.user) \
+                .filter(status=1).order_by('-created_on')
 
-    
         return render(
             request,
             'user_profile.html',
@@ -149,7 +147,6 @@ class AddQuestion(View):
         """
         x
         """
-        
         return render(
             request,
             'add_question.html',
@@ -167,22 +164,21 @@ class AddQuestion(View):
 
         if question_form.is_valid():
             question_form.instance.author = request.user
-            fraga = question_form.save(commit=False)
-            fraga.save()
+            ques = question_form.save(commit=False)
+            ques.save()
 
         else:
-        
+
             question_form = QuestionForm()
-            
+
         return redirect('/user_profile')
 
 
-    
 class EditQuestion(View):
-    """ 
+    """
     X
     """
-    
+
     def get(self, request, id, *args, **kwargs):
         """
         x
@@ -190,16 +186,15 @@ class EditQuestion(View):
         queryset = Question.objects.filter(status=1)
         rest = get_object_or_404(queryset, id=id)
         editform = QuestionForm(instance=rest)
-        
+
         return render(
             request,
             'edit_question.html',
             {
                 'editform': editform,
                 'edit_question_form': QuestionForm(instance=rest)
-            }        
+            }
         )
-
 
     def post(self, request, id, *args, **kwargs):
         """
@@ -208,7 +203,7 @@ class EditQuestion(View):
         queryset = Question.objects.filter(status=1)
         rest = get_object_or_404(queryset, id=id)
         edit_question_form = QuestionForm(data=request.POST, instance=rest)
-        if request.user.is_superuser: 
+        if request.user.is_superuser:
 
             queryset = Question.objects.filter(status=1)
             rest = get_object_or_404(queryset, id=id)
@@ -224,20 +219,19 @@ class EditQuestion(View):
             rest = get_object_or_404(queryset, author=request.user, id=id)
 
             if edit_question_form.is_valid():
-                
+
                 edit_question_form.instance.author = request.user
-                wfraga = edit_question_form.save(commit=False)
-                wfraga.save()
+                eques = edit_question_form.save(commit=False)
+                eques.save()
 
             else:
-                # print(' not saving ')
                 edit_question_form = QuestionForm()
-            
-        # messages.success(request, 'Updated')
+
         return redirect('/user_profile')
 
+
 def delete_question(request, id):
-    """ 
+    """
     X
     """
     if request.user.is_superuser:
@@ -248,6 +242,3 @@ def delete_question(request, id):
     item.delete()
 
     return redirect('/user_profile')
-
-    
-

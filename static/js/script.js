@@ -1,4 +1,3 @@
-
 /*
 Confirm that the user wants to delete a recipe and delete it if so.
 Args:
