@@ -43,6 +43,16 @@
     - Easy navigation
 
 * Wireframes
+    * [Home Page](documentation/img/homePage.jpg)
+    * [Questions](documentation/img/Question.jpg)
+    * [Full Question](documentation/img/fullQuestion.jpg)
+    * [Profile](documentation/img/Myprofile.jpg)
+    * [Edit](documentation/img/Edit.jpg)
+    * [Add](documentation/img/add.jpg)
+    * [Register](documentation/img/signup.jpg)
+    * [Login](documentation/img/login.jpg)
+    * [Logout](documentation/img/logout.jpg)
+    
 
 
 ### Choice of color
@@ -68,70 +78,61 @@
 
 <br>
 
-* Footer: at the bottom with Logo and copyright symbol
-* Home Text: The text is to get the Site visitor intrigued to know more about what you can do on the site
+* Footer: The Footer is located at the bottom with Logo text and copyright symbol.
+* Home Page Text: The text is to get the Site visitor intrigued to know more about what the site can do for you
 
 ### Questions
 
 <br>
 
-* All Question: This page is the page where all questions are renderd.
-* The user can se title, author: If the title seems intresting for the user they can click on read more to be redirected to the Full Question
+* This page renders all questions and gives the user a preview of the content of the question. By pressing Read more the user will be directed to the full question. 
+* The user can se title, author
 
 ### Full Question
 
 <br>
 
+* Full question displays all information of the question.
+The site user has the option of reading comments, leaving a like or answering the question themselves. 
 * Shows full question with: author, title, when posted, number of likes, number of comments
-
-* Comments
-    * user, when, comment
-
-* Comment
-    * if the user is logged in the user can choose to leave a comment
+    * (If the user is not logged in they wont be able to comment)
 
 ### My Profile
 
 <br>
 
-* Intro, Name, Ask
+* The profile page is where the site user ( if they have an account ) can view their profile.
+    * They can see all of their questions
+    * They can ask a question by pressig the link in their profile. 
+    * If the user want to manage their questions they can press the Edit link wich takes them to the edit page.
 
 <br>
-
-* My Questions
-* Edit
-
-### Ask Question
-
-<br>
-
-* Form
-
-### Edit Question
-
-<br>
-
-* Form
-    * Prepopulated
-    * Delete option
 
 ### Register
 
 <br>
 
-* Form
+* The new site user can take part in the forum by registering a personal account.
+    * This allows them to ask questions and comment on other users questions.
 
-### Login
-
-<br>
-
-* Form
-
-### Logout
+### Login/Logout
 
 <br>
 
-* Form
+* If the user already has an account, they can log in, and if the user wants to log out, there is also that option.
+
+### Admin
+
+<br>
+
+* The admin has a slightly difrent profile.
+    * They have access to all questions and can manage them however they want.
+
+## Future features
+---
+
+* In the future i would like to implement a way for the admin to approve/disapprove comments.
+    * I think that this would make the site more secure
 
 ## Technologies used
 ---
@@ -155,7 +156,7 @@
     * Django allauth
     * Django crispy forms
 
-![Database](documentation/img/Db.jpg)
+![Database](documentation/db_diagrams/Db.jpg)
 
 
 ## Testing
@@ -342,7 +343,34 @@ In Heroku
 
 
 ## Credits
+---
 
+### Code
+
+* #### Mentor sessions
+
+<p>
+The mentor sessions throughout the project have been a massive help. During the sessions, I have been able to move forward with the project and develop it even further.
+</p>
+
+* #### Course content
+
+<p>
+The course content has helped me get an all-around understanding of the concept used in this project. I have been able to apply the previous videos and exercises to create my site.
+</p>
+
+* #### Code institute slack chanel
+
+<p>
+The Codeinstitute slack channel has been a massive help with small problems. Discussing with other students has been very helpful in driving the project forward.
+</p>
+
+* #### website/links
+
+    * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction)
+    * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models)
+    * [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+    * [Django](https://docs.djangoproject.com/en/4.0/)
 
 
 
