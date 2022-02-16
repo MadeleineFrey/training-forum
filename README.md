@@ -1,108 +1,369 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome Madde,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
+# Traint
 ---
 
-Happy coding!
+## About
+---
+
+### UX (User Experience)
+---
+
+* USER STORY: View Questions. 
+    - As a use Site User I can view other people's questions so that I can help to answer them.
+* USER STORY: View my Questions. 
+   -  As a use Site User I can view other people's questions so that I can help to answer them.
+* USER STORY: Create question.
+    - As a Site User I can cerate my own questions so that I can get an answer from other Site Users
+* USER STORY: Like/Unlike 
+   -  As a Site User I can like or unlike a question so that I can give my feedback to the owner
+* USER STORY: Comment on a question 
+   -  As a Site User I can comment on a question so that I can give my answer to the question
+* USER STORY: View Profile 
+   -  As a Site User I can view my profile so that I can manage my questions
+* USER STORY: Click on a Question 
+   -  As a Site User I can Click on a question so that I can view the full question and answer if I want to
+* USER STORY: Register account 
+   -  As a Site User I can register an account so that I can log in to create a question, comment on questions, like comments, manage own questions
+* USER STORY: View Comments 
+    - As a Site User I can view comments on questions so that I can receive feedback
+* USER STORY: Manage questions 
+    - As an Admin, I can delete questions so that the site stays appropriate
+* USER STORY: Update question 
+    - As a Site User I can edit and delete questions so that I can manage my questions
+
+
+### Design
+---
+
+* The design of the web application meets accessibility guidelines, presents a structured layout and follows the principles of UX design and navigation model
+* Contrast between background and foreground colors to help the visually impaired
+* The graphics are consistent in style and color throughout the site.
+* The overall style of the application is to be minimalistic.
+    - A minimalistic design is working to get the user to the goal faster.
+    - No distraction from the goal 
+    - Easy navigation
+
+* Wireframes
+
+
+### Choice of color
+---
+
+* The color scheme is based on the color blue.
+    - The color blue is peace, tranquillity, calmness and serenity, helping to reduce anxiety, aggression.
+    - Training should never be stressfull and by using a blue tone reducec the risk of agitating site users with STRONG color
+
+### Responsive Design
+---
+* The site is responsive to all devices (desktop, mobile, tablet).
+
+## Features
+---
+
+#### Home Page
+
+<br>
+
+* Navbar: Showing the different pages on the site
+    * Looks different if you are not logged in
+
+<br>
+
+* Footer: at the bottom with Logo and copyright symbol
+* Home Text: The text is to get the Site visitor intrigued to know more about what you can do on the site
+
+### Questions
+
+<br>
+
+* All Question: This page is the page where all questions are renderd.
+* The user can se title, author: If the title seems intresting for the user they can click on read more to be redirected to the Full Question
+
+### Full Question
+
+<br>
+
+* Shows full question with: author, title, when posted, number of likes, number of comments
+
+* Comments
+    * user, when, comment
+
+* Comment
+    * if the user is logged in the user can choose to leave a comment
+
+### My Profile
+
+<br>
+
+* Intro, Name, Ask
+
+<br>
+
+* My Questions
+* Edit
+
+### Ask Question
+
+<br>
+
+* Form
+
+### Edit Question
+
+<br>
+
+* Form
+    * Prepopulated
+    * Delete option
+
+### Register
+
+<br>
+
+* Form
+
+### Login
+
+<br>
+
+* Form
+
+### Logout
+
+<br>
+
+* Form
+
+## Technologies used
+---
+
+* Languages
+    * HTML.
+    * CSS.
+    * JavaScript.
+    * Python.
+
+* Frameworks libraries & programs Used
+    * Django
+    * Git
+    * Github
+    * Bootstrap
+    * Gunicorn
+    * dj_database_url
+    * psycopg2
+    * Cloudinary
+    * Summernote
+    * Django allauth
+    * Django crispy forms
+
+![Database](documentation/img/Db.jpg)
+
+
+## Testing
+---
+
+### Validator Testing
+
+#### Html 
+
+* Base.html
+* Index.html
+* Question.html
+* Full_Question.html
+* User_Profile.html
+* Add_Question.html
+* Register.html
+* Login.html
+* Logout.html
+* Edit_Question.html
+
+<br>
+
+#### CSS
+
+* style.css
+
+<br>
+
+#### Javascript
+
+* script.js
+
+<br>
+
+#### Python
+
+* Forum
+    * admin.py
+    * forms.py
+    * models.py
+    * urls.py
+    * views.p
+
+* Traint
+    * settings.py
+    * urls.py
+
+<br>
+
+### Manual testing
+
+<br>
+
+## Deployment
+---
+
+
+* Deployment steps followed:
+    1. Create the Heroku app .
+    1. Attach the PostgreSQL
+    1. Prepare environment and settings.py files
+    1. Get our static and media files stored on Cloudinary
+
+<br>
+
+* Heroku
+    1. “pip3 install django gunicorn” in the terminal, using gunicorn to be the server to run Django on heroku.
+    1. “pip3 install dj_database_url psycopg2
+
+<br>
+
+* To run Cloudinary 
+    1. pip3 install dj3-cloudinary-storage
+    1. Create the requirements.txt file: pip3 freeze –local >requirements.txt
+
+<br>
+
+* To create a new Django project
+    1. “django-admin start project traint .”
+    1. Create the app: “python3 manage.py startapp forum”
+
+<br>
+
+* In our settings.py file
+    1. in the installed app section add: “forum” 
+
+<p>
+we now need to migrate this changes to the database
+in the terminal: “python3 manage.py migrate”
+</p>
+
+<br>
+
+#### Creat a app in heroku
+
+1. You need to have an account on Heroku.com
+2. Create a list of requirements that the project needs to run:
+    * ype in this in the terminal: pip3 freeze > requirements.txt
+    * (Now all of the requirements has been updated)
+    * Commit and push the changes to GitHub
+3. login to your account on Heroku or create one if needed.
+4. Click on your profile and then the "create new app" button.
+5. You will now create an app name and select a region.
+    * This project chose traint-forum and the region Europe
+    * The app name needs to be unique
+6. when this is done click "create app"
+7. In the Resources tab, Add a database: search for postgres in the Add-ons field (Heroku Postgres)
+8. Open the settings tab before you deploy the code.
+9. In setting, scroll down to the config Vars section
+10. copy the DATABASE_URL
+
+<br>
+
+* In the code in the same directory as the manage.py create a file named “env.py”
+    1. At the top import os
+    1. Set a environment variable caller DATABASE_URL  (paste in url)
+    1. Add your SECRET_KEY as well 
+    1. copy your secret key value and go back to Heroku config vars.
+    1. Add the secret_key value to a new config var called SECRET_KEY
+    1. Reference the env.py in the setings.py file, by using:
+        * import os 
+        * import dj_database
+    1. In setings.py add secret key value:
+        * SECRET_KEY = os.environ.get('SECRET_KEY')
+    1. In settings scroll down to DATABASES: 
+        * DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+
+Do not forget to migrate the changes
+
+### Cloudinary
+
+1. Create an account
+1. Click on the Sign Up For Free button
+1. Provide your name, email address and choose a password
+1. For Primary interest, you can choose Programmable Media for image and video API
+1. Optional: edit your assigned cloud name to something more memorable
+1. Click Create Account
+1. Verify your email and you will be brought to the dashboard
+
+<br>
+
+1. From the dashboard, copy the "API Environment variable" value by clicking on the "Copy to clipboard" link.
+1. Go back to the env.py file add the value to CLOUDINARY_URL(remember to remove CLOUDINARY_URL= in the begining of the "API Environment variable")
+1. Paste the same value into heroku as well in a config var named “CLOUDINARY_URL”
+1. When starting your project add one temporary variable: 
+    * DISABLE_COLLECTSTATIC assign it 1
+
+<br>
+
+* In settings.py under installed apps add:
+    * ‘cloudinary_storage’
+    * ‘cloudinary’
+
+<br>
+
+* At the end of settings.py add: 
+    * STATICFILES_STORAGE = Cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+    * STATICFILES_DRS = [os.path.join(BASE_DIR, ‘static’)]
+    * STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
+    * MEDIA_URL = ‘/media/’
+    * DEFAULT_FILE_STORAGE = ‘"Cloudinary_storage.storage.MediaCloudinaryStorage".
+
+<br>
+
+Tell django where our templates are stored by: 
+* TEMPLATES_DIR = os.path.join(BASE_DIR, ‘templates’)
+* Set the ‘DIRS’: [TEMPLATES_DIR]
+* set  ALLOWED_HOSTS = [‘herokuappname.herokuapp.com’, ‘localhost’]
+* Create a Procfile 
+* Commit and push the changes to the repository
+
+<br>
+
+In Heroku 
+1. Under deploy choose Github as deployment method
+1. Search for the repository
+1. then click on deploy branch
+
+### Final Deployment
+
+
+## Credits
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

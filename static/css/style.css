@@ -3,15 +3,6 @@ body {
     
 }
 
-/* footer {
-    position: fixed;
-    height: 56px;
-    bottom: 0;
-    width: 100%;
-}
-
-*/
-
 .footer {
     height: 50px;
     margin-top: -50px;
@@ -77,9 +68,7 @@ a:hover {
 }
 
 
-.jumbotron {
+.sky {
     background-image: url("https://res.cloudinary.com/dhmusmslg/image/upload/v1644965794/sky_ypj5w0.jpg");
     background-size: cover;
-    padding-top: 1%;
-    padding-bottom: 25%;
 }
